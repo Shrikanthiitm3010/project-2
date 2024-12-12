@@ -2,6 +2,8 @@
 # requires-python = ">=3.11"
 # dependencies = [
 #   "seaborn",
+#   "httpx",
+#   "chardet"
 # ]
 # ///
 
