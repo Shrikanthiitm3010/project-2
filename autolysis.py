@@ -36,7 +36,7 @@ def analyze_data(df):
     }
     return analysis
 
-def visualize_data(df,folder_name):
+def visualize_data(df):
     """Generate and save visualizations."""
     sns.set(style="whitegrid")
     numeric_columns = df.select_dtypes(include=['number']).columns
@@ -44,7 +44,7 @@ def visualize_data(df,folder_name):
         plt.figure()
         sns.histplot(df[column].dropna(), kde=True)
         plt.title(f'Distribution of {column}')
-        plt.savefig(f'{folder_name}/{column}_distribution.png')
+        plt.savefig(f'{column}_distribution.png')
         plt.close()
 
 def generate_narrative(analysis):
@@ -76,7 +76,7 @@ def main(file_path):
     os.mkdir(folder_name)
     df = load_data(file_path)
     analysis = analyze_data(df)
-    visualize_data(df,folder_name)
+    visualize_data(df)
     narrative = generate_narrative(analysis)
     print(narrative)
     with open(f'{folder_name}/README.md', 'w') as f:
