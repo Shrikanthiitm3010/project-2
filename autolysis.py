@@ -73,13 +73,12 @@ def generate_narrative(analysis):
 def main(file_path):
     folder_name = file_path.split(("/"))[-1]
     folder_name = folder_name.split(".")[0]
-    os.mkdir(folder_name)
     df = load_data(file_path)
     analysis = analyze_data(df)
     visualize_data(df)
     narrative = generate_narrative(analysis)
     print(narrative)
-    with open(f'{folder_name}/README.md', 'w') as f:
+    with open(f'README.md', 'w') as f:
         f.write(narrative)
 
 if __name__ == "__main__":
