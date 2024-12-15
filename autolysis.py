@@ -57,17 +57,17 @@ def analyze_data(df):
     }
     return analysis
 
-def detect_outliers(df):
-    """Detect outliers in numeric data."""
-    outliers = {}
-    for column in df.select_dtypes(include=['number']).columns:
-        Q1 = df[column].quantile(0.25)
-        Q3 = df[column].quantile(0.75)
-        IQR = Q3 - Q1
-        lower_bound = Q1 - 1.5 * IQR
-        upper_bound = Q3 + 1.5 * IQR
-        outliers[column] = df[(df[column] < lower_bound) | (df[column] > upper_bound)].shape[0]
-    return outliers
+# def detect_outliers(df):
+#     """Detect outliers in numeric data."""
+#     outliers = {}
+#     for column in df.select_dtypes(include=['number']).columns:
+#         Q1 = df[column].quantile(0.25)
+#         Q3 = df[column].quantile(0.75)
+#         IQR = Q3 - Q1
+#         lower_bound = Q1 - 1.5 * IQR
+#         upper_bound = Q3 + 1.5 * IQR
+#         outliers[column] = df[(df[column] < lower_bound) | (df[column] > upper_bound)].shape[0]
+#     return outliers
 
 def visualize_data(df):
     """Generate enhanced visualizations."""
@@ -135,7 +135,7 @@ def main(file_path):
 
     df = load_data(file_path)
     analysis = analyze_data(df)
-    outliers = detect_outliers(df)
+    # outliers = detect_outliers(df)
     visualize_data(df)
     visualize_correlation(df)
 
