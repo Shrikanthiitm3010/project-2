@@ -129,9 +129,9 @@ def generate_narrative(analysis):
     return "Narrative generation failed due to an error."
 
 def main(file_path):
-    folder_name = file_path.split(('/'))[-1].split('.')[0]
-    os.makedirs(folder_name, exist_ok=True)
-    os.chdir(folder_name)
+    # folder_name = file_path.split(('/'))[-1].split('.')[0]
+    # os.makedirs(folder_name, exist_ok=True)
+    # os.chdir(folder_name)
 
     df = load_data(file_path)
     analysis = analyze_data(df)
